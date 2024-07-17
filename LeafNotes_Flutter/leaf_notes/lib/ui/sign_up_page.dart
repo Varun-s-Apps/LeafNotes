@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leaf_notes/router/page_const.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
 import 'package:leaf_notes/ui/widgets/d_button.dart';
 import 'package:leaf_notes/ui/widgets/d_gap.dart';
@@ -57,8 +58,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   Text("Aready have an account?"),
                   DGap(isHorizontal: true,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
-                  }, child: Text("Sign In", style: TextStyle(color: dPrimaryColor),)),
+                    //PUSH NAMED PAGE USING ROUTES INSTEAD OF NORMAL
+                    Navigator.pushNamedAndRemoveUntil(context, PageConstants.signInPage, (route) => false);
+                  }, child: Text("Sign In", style: TextStyle(color: dBlackColor),)),
                 ],
               )
 

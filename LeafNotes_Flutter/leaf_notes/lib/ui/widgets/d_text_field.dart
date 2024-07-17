@@ -26,7 +26,8 @@ class DTextField extends StatelessWidget {
       padding: const EdgeInsets.all(dPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius!),
-        color: dAccent
+        border: Border.all(width: dBorderWidth)
+
       ),
       child: TextField(
         controller: controller,

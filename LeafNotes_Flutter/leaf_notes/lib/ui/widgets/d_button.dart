@@ -25,8 +25,6 @@ class DButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-            backgroundColor: dPrimaryColor,
-            foregroundColor: dOnPrimaryColor,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(dBorderRadius))
           ),
           //  CHILD COMPONENT

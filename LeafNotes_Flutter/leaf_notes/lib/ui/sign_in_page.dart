@@ -5,9 +5,9 @@ import 'package:leaf_notes/utils/text_themes/text_styles.dart';
 
 import '../router/page_const.dart';
 import '../utils/constants/colors.dart';
-import 'widgets/d_button.dart';
-import 'widgets/d_gap.dart';
-import 'widgets/d_text_field.dart';
+import 'widgets/common/d_button.dart';
+import 'widgets/common/d_gap.dart';
+import 'widgets/common/d_text_field.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});

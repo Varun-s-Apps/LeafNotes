@@ -9,6 +9,8 @@ class DTextField extends StatelessWidget {
   final double? iconSize;
   final TextEditingController controller;
   final bool? obscureText;
+  final double padding;
+  final int maxLines;
 
   const DTextField(
       {super.key,
@@ -16,20 +18,23 @@ class DTextField extends StatelessWidget {
       this.borderRadius = dBorderRadius,
       this.icon ,
       this.iconSize = dIconSize ,
+      this.padding = dPadding,
       required this.controller,
+      this.maxLines = 1,
       this.obscureText = false});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: dPadding*2, vertical: dPadding),
-      padding: const EdgeInsets.all(dPadding),
+      margin:  EdgeInsets.symmetric(horizontal: padding*2, vertical: padding),
+      padding:  EdgeInsets.all(padding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius!),
         border: Border.all(width: dBorderWidth)
 
       ),
       child: TextField(
+        maxLines: maxLines,
         controller: controller,
         obscureText: obscureText!,
         decoration: InputDecoration(

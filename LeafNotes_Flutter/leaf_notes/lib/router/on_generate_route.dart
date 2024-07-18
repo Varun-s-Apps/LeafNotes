@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:leaf_notes/router/page_const.dart';
+import 'package:leaf_notes/ui/add_note_page.dart';
+import 'package:leaf_notes/ui/profile_page.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
 import 'package:leaf_notes/ui/sign_up_page.dart';
+import 'package:leaf_notes/ui/update_note_page.dart';
 
 class OnGenerateRoute {
 
@@ -16,6 +19,18 @@ class OnGenerateRoute {
       case PageConstants.signInPage:{
         return materialPageBuilder(widget: const SignInPage());
       }
+
+      case PageConstants.profilePage:{
+        return materialPageBuilder(widget: const ProfilePage());
+      }
+
+      case PageConstants.addNotePage:{
+        return materialPageBuilder(widget: const AddNotePage());
+      }
+      case PageConstants.updateNotePage:{
+        return materialPageBuilder(widget: const UpdateNotePage());
+      }
+      
       default:{
         return  materialPageBuilder(widget: const ErrorPage());
       }

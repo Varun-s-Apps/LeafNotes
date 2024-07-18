@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:leaf_notes/router/page_const.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
-import 'package:leaf_notes/ui/widgets/d_button.dart';
-import 'package:leaf_notes/ui/widgets/d_gap.dart';
-import 'package:leaf_notes/ui/widgets/d_text_field.dart';
+import 'package:leaf_notes/ui/widgets/common/d_button.dart';
+import 'package:leaf_notes/ui/widgets/common/d_gap.dart';
+import 'package:leaf_notes/ui/widgets/common/d_text_field.dart';
 import 'package:leaf_notes/utils/constants/colors.dart';
 
 class SignUpPage extends StatefulWidget {

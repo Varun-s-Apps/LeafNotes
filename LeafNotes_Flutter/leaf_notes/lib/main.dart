@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leaf_notes/router/on_generate_route.dart';
+import 'package:leaf_notes/ui/home_page.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
 import 'package:leaf_notes/utils/theme_data/dark_theme_data.dart';
 import 'package:leaf_notes/utils/theme_data/light_theme_data.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
       //INITIAL ROUTE
       routes: {
         "/" : (context){
-          return SignInPage();
+          return const HomePage();
+          // return SignInPage();
         }
       },
 

@@ -11,7 +11,18 @@ final ThemeData lightTheme = ThemeData(
   ),
   scaffoldBackgroundColor: dScaffoldLightColor,
 
-  fontFamily: 'Handwritten 3',
+  // fontFamily: 'Handwritten 4',
+  fontFamily: 'Montserrat',
+
+
+ textTheme: const TextTheme(
+      bodyLarge: TextStyle(fontSize: 18.0),
+      
+      bodyMedium: TextStyle(fontSize: 16.0),
+    
+      labelLarge: TextStyle(fontSize: 16.0),
+      // and so on for every text style
+    ),
 
   inputDecorationTheme: const InputDecorationTheme(
     hintStyle: TextStyle(color: dHintGreyColor),

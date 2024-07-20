@@ -22,14 +22,15 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, PageConstants.profilePage);
             },
-            icon: const Icon(Icons.circle_rounded)),
+            icon: const Icon(Icons.circle_rounded), iconSize: 40,),
         // backgroundColor:theme.of,
         title: const Text("Leaf Notes"),
+        centerTitle: true,
         actions: const [
           Icon(Icons.refresh),
-          DGap(isHorizontal: true),
+          SizedBox(width: dPadding*2),
           Icon(Icons.logout),
-          DGap(isHorizontal: true),
+          SizedBox(width: dPadding*2),
         ],
       ),
       body: Padding(

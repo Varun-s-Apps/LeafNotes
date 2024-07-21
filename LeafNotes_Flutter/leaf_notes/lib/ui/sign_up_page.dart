@@ -55,7 +55,7 @@ class _SignUpPageState extends State<SignUpPage> {
               },
             );
           }
-          return Container();
+          return _bodyWidget();
         },
         listener: (context, credentialState) {
           if (credentialState is CredentialSuccess) {
@@ -70,8 +70,8 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  _bodyWidget() {
-    Scaffold(
+  Widget _bodyWidget() {
+    return Scaffold(
       appBar: AppBar(
         title: Text("SIGN UP"),
         centerTitle: true,

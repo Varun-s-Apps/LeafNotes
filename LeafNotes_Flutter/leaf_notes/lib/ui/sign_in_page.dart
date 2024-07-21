@@ -58,7 +58,7 @@ class _SignInPageState extends State<SignInPage> {
             },);
 
           }
-          return Container();
+          return _bodyWidget();
         },
 
         listener: (context, credentialState) {

@@ -30,7 +30,7 @@ export class UserController {
       //USER NOT IT DATABSE
       //HENCE SIGN UP
 
-      let salt = await bcrypt.genSalt(10); //10 rounds
+      const salt = await bcrypt.genSalt(10); //10 rounds
       user.password = await bcrypt.hash(user.password, salt);
 
       //SIGNING UP

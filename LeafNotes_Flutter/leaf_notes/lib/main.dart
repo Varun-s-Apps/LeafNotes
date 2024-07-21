@@ -19,12 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthCubit>(
-          create: (_) => AuthCubit()..appStarted(),
-        ),
-        BlocProvider<CredentialCubit>(
-          create: (_) => CredentialCubit(),
-        ),
+        BlocProvider<AuthCubit>(create: (_) => AuthCubit()..appStarted()),
+        BlocProvider<CredentialCubit>(create: (_) => CredentialCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -45,20 +41,17 @@ class MyApp extends StatelessWidget {
               builder: (context, authState) {
                 if (authState is Authenticated) {
                   if (authState.uid == "") {
-                    return SignInPage();
+                    return const SignInPage();
                   } else {
                     return HomePage(uid: authState.uid);
                   }
                 } else {
-                  return SignInPage();
+                  return const SignInPage();
                 }
               },
             );
           }
         },
-
-        // home: const SignUpPage()
-        // home: const SignInPage()
       ),
     );
   }

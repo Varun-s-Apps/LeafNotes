@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:leaf_notes/cubit/auth/auth_cubit.dart';
+import 'package:leaf_notes/cubit/credential/credential_cubit.dart';
+import 'package:leaf_notes/models/user_model.dart';
+import 'package:leaf_notes/ui/home_page.dart';
 import 'package:leaf_notes/ui/sign_up_page.dart';
+import 'package:leaf_notes/ui/widgets/common/d_snackbar.dart';
 import 'package:leaf_notes/utils/constants/sizes.dart';
 import 'package:leaf_notes/utils/text_themes/text_styles.dart';
 
@@ -30,6 +36,49 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocConsumer<CredentialCubit, CredentialState>(
+        builder: (context, credentialState) {
+          if(credentialState is CredentialLoading){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+
+          }
+
+          if(credentialState is CredentialSuccess){
+            return BlocBuilder(builder: (context, authState) {
+              
+              if(authState is Authenticated){
+                return HomePage(uid: authState.uid);
+
+              }else{
+                // SIGN IN PAGE because user is not Authenticated
+                return _bodyWidget();
+              }
+            },);
+
+          }
+          return Container();
+        },
+
+        listener: (context, credentialState) {
+
+          if(credentialState is CredentialSuccess){
+            context.read<AuthCubit>().loggedIn(credentialState.user.uid!);
+          }
+
+          if(credentialState is CredentialFailure){
+            dSnackBar(context, credentialState.errorMessage, isError: true);
+          }
+          
+        },
+      ),
+    );
+  }
+
+
+  Widget _bodyWidget(){
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text("LEAF NOTES"),
@@ -68,6 +117,7 @@ class _SignInPageState extends State<SignInPage> {
                   print("Signed In ${_emailController.value.text}");
                   print("E-mail: ${_emailController.value.text}");
                   print("Password: ${_passwordController.value.text}");
+                  _submitSignIn();
                 }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -93,4 +143,22 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
+  
+  void _submitSignIn() {
+
+    if(_emailController.text.isEmpty){
+      dSnackBar(context, "Enter Email", isError: true);
+      return;
+    }
+  
+  if(_passwordController.text.isEmpty){
+      dSnackBar(context, "Enter Password", isError: true);
+      return;
+    }
+
+  context.read<CredentialCubit>().signIn(UserModel(
+    email: _emailController.text,
+    password: _passwordController.text
+  ));
+}
 }

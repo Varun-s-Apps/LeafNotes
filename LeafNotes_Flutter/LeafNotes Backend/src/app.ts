@@ -19,7 +19,7 @@ app.use("/v1/user", userRouter);
 
 //Defining server address
 const hostName = "localhost";
-const portNumber = 5000;
+const portNumber = 5001;
 
 
 //Initialising server

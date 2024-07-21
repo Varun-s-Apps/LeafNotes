@@ -6,7 +6,8 @@ import 'package:leaf_notes/utils/constants/colors.dart';
 import 'package:leaf_notes/utils/constants/sizes.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final String uid;
+  const HomePage({super.key,required this.uid} );
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class HomePage extends StatelessWidget {
             },
             icon: const Icon(Icons.circle_rounded), iconSize: 40,),
         // backgroundColor:theme.of,
-        title: const Text("Leaf Notes"),
+        title: Text("Leaf Notes $uid"),
         centerTitle: true,
         actions: const [
           Icon(Icons.refresh),

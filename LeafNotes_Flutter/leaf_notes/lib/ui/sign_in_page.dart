@@ -4,7 +4,6 @@ import 'package:leaf_notes/cubit/auth/auth_cubit.dart';
 import 'package:leaf_notes/cubit/credential/credential_cubit.dart';
 import 'package:leaf_notes/models/user_model.dart';
 import 'package:leaf_notes/ui/home_page.dart';
-import 'package:leaf_notes/ui/sign_up_page.dart';
 import 'package:leaf_notes/ui/widgets/common/d_snackbar.dart';
 import 'package:leaf_notes/utils/constants/sizes.dart';
 import 'package:leaf_notes/utils/text_themes/text_styles.dart';
@@ -47,7 +46,7 @@ class _SignInPageState extends State<SignInPage> {
           }
 
           if(credentialState is CredentialSuccess){
-            return BlocBuilder(builder: (context, authState) {
+            return BlocBuilder<AuthCubit, AuthState>(builder: (context, authState) {
               
               if(authState is Authenticated){
                 return HomePage(uid: authState.uid);

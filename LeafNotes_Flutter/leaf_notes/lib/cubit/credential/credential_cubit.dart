@@ -1,8 +1,9 @@
-import 'package:bloc/bloc.dart';
+
 import 'package:equatable/equatable.dart';
+import 'package:bloc/bloc.dart';
 import 'package:leaf_notes/models/user_model.dart';
 import 'package:leaf_notes/repository/network_repository.dart';
-import 'package:meta/meta.dart';
+
 
 part 'credential_state.dart';
 

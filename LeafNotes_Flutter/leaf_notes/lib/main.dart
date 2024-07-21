@@ -7,9 +7,6 @@ import 'package:leaf_notes/ui/home_page.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
 import 'package:leaf_notes/utils/theme_data/dark_theme_data.dart';
 import 'package:leaf_notes/utils/theme_data/light_theme_data.dart';
-import 'ui/sign_up_page.dart';
-import 'package:bloc/bloc.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -36,43 +33,32 @@ class MyApp extends StatelessWidget {
         darkTheme: darkTheme,
         // themeMode: ThemeMode.dark,
         themeMode: ThemeMode.light,
-      
+
         //INITIAL ROUTING SETTINGS AND INITIALISATION
         onGenerateRoute: OnGenerateRoute.route,
-      
+
         //INITIAL ROUTE
         routes: {
-          "/" : (context){
+          "/": (context) {
             // return const HomePage();
             return BlocBuilder<AuthCubit, AuthState>(
               builder: (context, authState) {
-                
-
-                if(authState is Authenticated){
-                  if(authState.uid == ""){
+                if (authState is Authenticated) {
+                  if (authState.uid == "") {
                     return SignInPage();
-                  }else{
+                  } else {
                     return HomePage(uid: authState.uid);
                   }
-                  
-                }else{
+                } else {
                   return SignInPage();
                 }
-
-
-
-
-
-
               },
             );
           }
         },
-      
-      
+
         // home: const SignUpPage()
         // home: const SignInPage()
-      
       ),
     );
   }

@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
           }
 
           if (credentialState is CredentialSuccess) {
-            return BlocBuilder(
+            return BlocBuilder<AuthCubit, AuthState>(
               builder: (context, authState) {
                 if (authState is Authenticated) {
                   return HomePage(uid: authState.uid);

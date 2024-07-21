@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
+
 import 'package:equatable/equatable.dart';
+import 'package:bloc/bloc.dart';
 import 'package:leaf_notes/utils/shared_pref.dart';
-import 'package:meta/meta.dart';
 
 part 'auth_state.dart';
 
@@ -11,6 +11,7 @@ class AuthCubit extends Cubit<AuthState> {
   final sharedPref = SharedPref();
 
   Future<void> appStarted() async{
+    print("App started");
     try {
       final uid = await sharedPref.getUid();
 
@@ -23,8 +24,10 @@ class AuthCubit extends Cubit<AuthState> {
       }
 
     } catch (e) {
+      print("Error");
       emit(UnAuthenticated());
     }
+  }
     
 
     Future<void> loggedIn(String uid) async{
@@ -42,6 +45,5 @@ class AuthCubit extends Cubit<AuthState> {
 
   }
 
-  void loggedIn(String? uid) {}
 
-}
+

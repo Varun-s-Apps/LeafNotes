@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:leaf_notes/models/notes_model.dart';
 import 'package:leaf_notes/models/user_model.dart';
 
 class ServerException implements Exception {
@@ -93,4 +94,67 @@ class NetworkRepository {
       throw ServerException(json.decode(response.body)['response']);
     }
   }
+
+
+  // *                GET NOTES
+
+  Future<List<NoteModel>> getNotes(NoteModel note) async {
+    //* http://localhost:5001/v1/notes/getNotes?uid=669d016df760e394d4d09b96
+    final response = await httpClient.get(
+
+        Uri.parse(_endPoint("notes/getNotes?uid=${note.creatorId}")),
+        headers: _header);
+
+    if (response.statusCode == 200) {
+       List<dynamic> notes = json.decode(response.body)['response'];
+
+      final notesData = notes.map((item) => NoteModel.fromJson(item)).toList();
+
+      return notesData;
+
+
+    } else {
+      throw ServerException(json.decode(response.body)['response']);
+    }
+  }
+
+  Future<void> addNote(NoteModel note) async {
+    final encodedParams = json.encode(note.toJson());
+
+    final response = await httpClient.post(Uri.parse(_endPoint("notes/addNote")),
+        body: encodedParams, headers: _header);
+
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      throw ServerException(json.decode(response.body)['response']);
+    }
+  }
+
+  Future<void> updateNote(NoteModel note) async {
+    final encodedParams = json.encode(note.toJson());
+
+    final response = await httpClient.put(Uri.parse(_endPoint("notes/updateNote")),
+        body: encodedParams, headers: _header);
+
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      throw ServerException(json.decode(response.body)['response']);
+    }
+  }
+
+  Future<void> deleteNote(NoteModel note) async {
+    final encodedParams = json.encode(note.toJson());
+
+    final response = await httpClient.delete(Uri.parse(_endPoint("notes/deleteNote")),
+        body: encodedParams, headers: _header);
+
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      throw ServerException(json.decode(response.body)['response']);
+    }
+  }
 }
+

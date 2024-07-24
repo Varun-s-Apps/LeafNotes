@@ -4,6 +4,7 @@ import cors from 'cors'
 import { connectToDatabase } from "./config/mongodb_client";
 import appLogger from './middleware/app_logger'
 import userRouter from "./routers/user_router";
+import noteRouter from "./routers/notes_router";
 
 //initialising express
 const app : express.Application = express();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended : false}))
 
 //ROUTER
 app.use("/v1/user", userRouter);
+app.use("/v1/notes", noteRouter);
 
 //Defining server address
 const hostName = "localhost";

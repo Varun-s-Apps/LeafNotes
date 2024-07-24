@@ -34,7 +34,7 @@ class NetworkRepository{
 
     final response = await httpClient.post(Uri.parse(_endPoint("user/signUp")), body: encodedParams, headers: _header);
 
-
+    
     if(response.statusCode == 200){
       //SUCCESSFULLY SIGNED UP
       final userModel = UserModel.fromJson(json.decode(response.body)['response']);

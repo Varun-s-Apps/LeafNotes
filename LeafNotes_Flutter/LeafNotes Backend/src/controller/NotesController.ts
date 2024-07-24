@@ -32,12 +32,11 @@ export class NotesController {
 
         let db = getDatabase();
 
-        let notesCollection = db.collection("notes");
+        let notesCollection = db.collection("notes")
 
-        //FETCH UID FROM REQUEST QUERY
         const uid = request.query.uid;
 
-        const data = await notesCollection.find({ creatorId: uid }).toArray();
+        const data = await notesCollection.find({creatorId: uid}).toArray();
 
 
         response.status(200).json({
@@ -46,4 +45,6 @@ export class NotesController {
         })
 
     }
+
 }
+

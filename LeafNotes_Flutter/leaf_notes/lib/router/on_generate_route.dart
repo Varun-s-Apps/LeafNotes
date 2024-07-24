@@ -7,34 +7,42 @@ import 'package:leaf_notes/ui/sign_up_page.dart';
 import 'package:leaf_notes/ui/update_note_page.dart';
 
 class OnGenerateRoute {
-
   //Router function. Accessible from all other pages.
-  static Route<dynamic> route (RouteSettings settings) {
+  static Route<dynamic> route(RouteSettings settings) {
     final args = settings.arguments;
 
     switch (settings.name) {
-      case PageConstants.signUpPage:{
-        return materialPageBuilder(widget: const SignUpPage());
-      }
-      case PageConstants.signInPage:{
-        return materialPageBuilder(widget: const SignInPage());
-      }
+      case PageConstants.signUpPage:
+        {
+          return materialPageBuilder(widget: const SignUpPage());
+        }
+      case PageConstants.signInPage:
+        {
+          return materialPageBuilder(widget: const SignInPage());
+        }
 
-      case PageConstants.profilePage:{
-        return materialPageBuilder(widget: const ProfilePage());
-      }
+      case PageConstants.profilePage:
+        {
+          if (args is String) {
+            return materialPageBuilder(widget: ProfilePage(uid: args));
+          } else {
+            return materialPageBuilder(widget: const ErrorPage());
+          }
+        }
 
-      case PageConstants.addNotePage:{
-        return materialPageBuilder(widget: const AddNotePage());
-      }
-      case PageConstants.updateNotePage:{
-        return materialPageBuilder(widget: const UpdateNotePage());
-      }
-      
-      default:{
-        return  materialPageBuilder(widget: const ErrorPage());
-      }
-       
+      case PageConstants.addNotePage:
+        {
+          return materialPageBuilder(widget: const AddNotePage());
+        }
+      case PageConstants.updateNotePage:
+        {
+          return materialPageBuilder(widget: const UpdateNotePage());
+        }
+
+      default:
+        {
+          return materialPageBuilder(widget: const ErrorPage());
+        }
     }
     //
   }
@@ -57,7 +65,6 @@ class ErrorPage extends StatelessWidget {
 }
 
 MaterialPageRoute materialPageBuilder({required Widget widget}) {
-
   //(_) because no context is required
   return MaterialPageRoute(builder: (_) => widget);
 }

@@ -4,10 +4,10 @@ import { NotesController } from "../controller/NotesController";
 
 
 
-const noteRouter: express.Router = express.Router();
+const notesRouter: express.Router = express.Router();
 
-noteRouter.post("/addNote", NotesController.addNote);
-noteRouter.get("/getMyNotes", NotesController.getMyNotes);
+notesRouter.post("/addNote", NotesController.addNote);
+notesRouter.get("/getNotes", NotesController.getMyNotes);
 
 
-export default noteRouter
+export default notesRouter

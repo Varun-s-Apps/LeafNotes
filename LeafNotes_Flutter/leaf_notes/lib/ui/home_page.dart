@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, PageConstants.profilePage);
+            Navigator.pushNamed(context, PageConstants.profilePage, arguments: uid);
           },
           icon: const Icon(Icons.circle_rounded),
           iconSize: 40,

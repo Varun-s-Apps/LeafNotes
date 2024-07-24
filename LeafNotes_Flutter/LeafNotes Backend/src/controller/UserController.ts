@@ -96,4 +96,48 @@ export class UserController {
 
     //sign in
   }
+
+  static  async  myProfile(request: express.Request,response :express.Response) {
+    let db = getDatabase();
+
+    let usersCollection = db.collection("users")
+
+    const uid = request.query.uid;
+
+    const userData =await usersCollection.find({_id:new ObjectId(uid!.toString())}).toArray();
+
+    response.status(200).json(
+        {
+            "status":"success",
+            "response":userData[0]
+        }
+    )
+
+}
+
+
+static async  updateProfile(request : express.Request , response : express.Response){
+
+
+  let db = getDatabase();
+
+  let usersCollection = db.collection("users")
+
+  const user : User=request.body;
+
+  const updateUserObject ={
+      username : user.username,
+  }
+
+ const updateUserInfo= await  usersCollection.updateOne({_id: new  ObjectId(user.uid)},{$set : updateUserObject})
+
+  response.status(200).json({
+      "status":"success",
+      "response":updateUserInfo
+  })
+
+
+}
+
+
 }

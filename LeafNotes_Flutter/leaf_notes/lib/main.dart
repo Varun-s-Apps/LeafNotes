@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leaf_notes/cubit/auth/auth_cubit.dart';
 import 'package:leaf_notes/cubit/credential/credential_cubit.dart';
+import 'package:leaf_notes/cubit/user/user_cubit.dart';
 import 'package:leaf_notes/router/on_generate_route.dart';
 import 'package:leaf_notes/ui/home_page.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthCubit>(create: (_) => AuthCubit()..appStarted()),
         BlocProvider<CredentialCubit>(create: (_) => CredentialCubit()),
+        BlocProvider<UserCubit>(create: (_) => UserCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

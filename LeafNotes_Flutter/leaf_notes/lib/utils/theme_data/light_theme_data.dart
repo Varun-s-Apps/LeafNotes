@@ -12,7 +12,15 @@ final ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: dScaffoldLightColor,
 
   // fontFamily: 'Handwritten 4',
+  // fontFamily: 'Roboto',
   fontFamily: 'Montserrat',
+
+
+
+  appBarTheme: const AppBarTheme(
+    scrolledUnderElevation: 0,
+    surfaceTintColor: dScaffoldLightColor
+  ),
 
 
  textTheme: const TextTheme(

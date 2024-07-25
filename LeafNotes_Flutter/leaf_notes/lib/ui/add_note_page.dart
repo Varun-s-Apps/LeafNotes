@@ -5,6 +5,7 @@ import 'package:leaf_notes/ui/widgets/common/d_snackbar.dart';
 import 'package:leaf_notes/ui/widgets/common/d_text_field.dart';
 import 'package:leaf_notes/utils/constants/colors.dart';
 import 'package:leaf_notes/utils/constants/sizes.dart';
+import 'package:leaf_notes/utils/text_themes/text_styles.dart';
 
 class AddNotePage extends StatefulWidget {
   const AddNotePage({super.key});
@@ -33,22 +34,33 @@ class _AddNotePageState extends State<AddNotePage> {
       ),
       body: Column(
         children: [
-          DTextField(hintText: "Title", controller: _titleController),
-          const DGap(),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: dPadding),
-            decoration: BoxDecoration(
-                // color: dBlackColor.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(dBorderRadius)),
-            child: DTextField(hintText: "Description", controller: _descriptionController, maxLines: 10,)
+          DTextField(
+            hintText: "Title",
+            textAlignment: TextAlign.start,
+            controller: _titleController,
+            textStyle: boldHeading(weight: FontWeight.w500, size: 32),
+            isBorderless: true,
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: dPadding),
+            child: DTextField(
+              hintText: "Description",
+              textAlignment: TextAlign.start,
+              textStyle: body(weight: FontWeight.w400, color: dTextGreyColor),
+              padding: 0.0,
+              controller: _descriptionController,
+              isBorderless: true,
+            ),
+          ),
+          // const DGap(),
+
           const DGap(),
           DButton(text: "Add New Note", onPressed: () => _addNewNote())
         ],
       ),
     );
   }
-  
+
   void _addNewNote() {
     dSnackBar(context, "New Note Added Successfully");
   }

@@ -36,6 +36,7 @@ dependencies:
   bloc:
   equatable: ^2.0.5
   shared_preferences: ^2.2.3
+  google_fonts: ^6.2.1
   intl: ^0.19.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -75,42 +76,31 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Montserrat
-      fonts:
-        - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
-          weight: 400
-        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
-          weight: 500
-        - asset: assets/fonts/Montserrat/Montserrat-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Montserrat/Montserrat-ExtraBold.ttf
-          weight: 800
+      - family: Roboto
+        fonts:
+          - asset: assets/fonts/Roboto/Roboto-Thin.ttf
+            weight: 300
+          - asset: assets/fonts/Roboto/Roboto-Light.ttf
+            weight: 400
+          - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+            weight: 600
+          - asset: assets/fonts/Roboto/Roboto-Bold.ttf
+            weight: 800
+            
+      - family: Montserrat
+        fonts:
+          - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
+            weight: 300
+          - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+            weight: 400
+          - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+            weight: 600
+
+          - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+            weight: 800
 
           
-    - family: Handwritten
 
-      fonts:
-        - asset: assets/fonts/michelle_digital_handwritten.ttf
-
-    - family: Handwritten 2
-      fonts:
-        - asset: assets/fonts/Salmon.ttf
-
-    - family: Handwritten 3
-      fonts:
-        - asset: assets/fonts/The_Sunday.otf
-
-    - family: Handwritten 4
-      fonts:
-        - asset: assets/fonts/Baby_Doll.ttf
-        
-    - family: Handwritten 5
-      fonts:
-        - asset: assets/fonts/Winkle-Regular.ttf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

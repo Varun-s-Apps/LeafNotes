@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:leaf_notes/cubit/auth/auth_cubit.dart';
 import 'package:leaf_notes/router/page_const.dart';
 import 'package:leaf_notes/ui/widgets/common/d_gap.dart';
 import 'package:leaf_notes/utils/constants/colors.dart';
 import 'package:leaf_notes/utils/constants/sizes.dart';
+import 'package:leaf_notes/utils/text_themes/text_styles.dart';
 
 class HomePage extends StatelessWidget {
   final String uid;
@@ -30,7 +32,7 @@ class HomePage extends StatelessWidget {
           iconSize: 40,
         ),
         // backgroundColor:theme.of,
-        title: Text("Leaf Notes"),
+        title: Text("Leaf Notes", style: boldHeading(),),
         centerTitle: true,
         actions: [
           Icon(Icons.refresh),
@@ -92,10 +94,10 @@ class BuildNotesContainer extends StatelessWidget {
 
                 //children
                 children: [
-                  const Text("TITLE"),
-                  const Text("description"),
+                   Text("Title", style: boldHeading(weight: FontWeight.w500, size: 32),),
+                   Text("description", style: body(weight: FontWeight.w400, color: dTextGreyColor)),
                   Text(
-                      DateFormat("dd MMMM yyy hh:mm a").format(DateTime.now())),
+                      DateFormat("dd MMMM yyy hh:mm a").format(DateTime.now()), style: caption(size: 14),),
                 ],
               ),
 

@@ -12,7 +12,7 @@ import 'package:leaf_notes/utils/text_themes/text_styles.dart';
 class HomePage extends StatelessWidget {
   final String uid;
   const HomePage({super.key, required this.uid});
-
+//TODO: #6 UPDATE HOME PAGE WITH NOTES AUTHOMATICALLY
   @override
   Widget build(BuildContext context) {
     print(uid);

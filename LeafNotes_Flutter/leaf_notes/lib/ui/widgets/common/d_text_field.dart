@@ -110,8 +110,6 @@ Widget build(BuildContext context) {
       border: isBorderless ? null : Border.all(width: borderWidth),
     ),
     child: TextField(   
-      // maxLines: maxLines,
-      // maxLines: null,
       controller: controller,
       obscureText: obscureText,
     

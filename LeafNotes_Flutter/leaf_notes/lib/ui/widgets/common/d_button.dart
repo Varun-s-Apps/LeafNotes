@@ -6,12 +6,14 @@ class DButton extends StatelessWidget {
   final String text;
   final double? borderRadius;
   final VoidCallback? onPressed;
+  final bool? isInverted;
 
   const DButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.borderRadius = dBorderRadius,
+    this.isInverted = false,
   
   });
 

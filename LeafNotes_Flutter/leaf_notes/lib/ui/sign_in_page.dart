@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:leaf_notes/cubit/auth/auth_cubit.dart';
 import 'package:leaf_notes/cubit/credential/credential_cubit.dart';
 import 'package:leaf_notes/models/user_model.dart';
 import 'package:leaf_notes/ui/home_page.dart';
+import 'package:leaf_notes/ui/widgets/common/d_button.dart';
 import 'package:leaf_notes/ui/widgets/common/d_snackbar.dart';
 import 'package:leaf_notes/utils/constants/sizes.dart';
 import 'package:leaf_notes/utils/text_themes/text_styles.dart';
 
 import '../router/page_const.dart';
 import '../utils/constants/colors.dart';
-import 'widgets/common/d_button.dart';
+import 'widgets/common/d_outlined_button.dart';
 import 'widgets/common/d_gap.dart';
 import 'widgets/common/d_text_field.dart';
 
@@ -39,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
       body: BlocConsumer<CredentialCubit, CredentialState>(
         builder: (context, credentialState) {
           if(credentialState is CredentialLoading){
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
 
@@ -79,10 +81,6 @@ class _SignInPageState extends State<SignInPage> {
 
   Widget _bodyWidget(){
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("LEAF NOTES"),
-      //   centerTitle: true,
-      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -115,8 +113,6 @@ class _SignInPageState extends State<SignInPage> {
                 text: "Sign In",
                 onPressed: () {
                   print("Signed In ${_emailController.value.text}");
-                  print("E-mail: ${_emailController.value.text}");
-                  print("Password: ${_passwordController.value.text}");
                   _submitSignIn();
                 }),
             Row(
@@ -137,6 +133,8 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ],
             ),
+
+            DOutlinedButton(text: "Sign in with Google",icon: const FaIcon(FontAwesomeIcons.google),  onPressed: (){}),
             const DGap(gap: dMargin * 3),
           ],
         ),

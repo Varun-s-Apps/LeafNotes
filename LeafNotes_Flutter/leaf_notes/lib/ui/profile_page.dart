@@ -6,6 +6,7 @@ import 'package:leaf_notes/cubit/user/user_cubit.dart';
 import 'package:leaf_notes/models/user_model.dart';
 import 'package:leaf_notes/router/page_const.dart';
 import 'package:leaf_notes/ui/widgets/common/d_button.dart';
+import 'package:leaf_notes/ui/widgets/common/d_outlined_button.dart';
 import 'package:leaf_notes/ui/widgets/common/d_gap.dart';
 import 'package:leaf_notes/ui/widgets/common/d_snackbar.dart';
 import 'package:leaf_notes/ui/widgets/common/d_text_field.dart';

@@ -56,41 +56,39 @@ class _UpdateNotePageState extends State<UpdateNotePage> {
         children: [
           const DDivider(height: 2, thickness: 2),
           Expanded(
-            child: Container(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    // DBorderLessTextField(hintText: "Title", controller: _titleController, textStyle: headline(),),
-                    DPasswordTextField(
-                      hintText: "Title",
-                      textAlignment: TextAlign.start,
-                      controller: _titleController,
-                      textStyle: boldHeading(weight: FontWeight.w500, size: 32),
-                      isBorderless: true,
-                    ),
-                    const DGap(),
-                    Container(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: dPadding),
-                        decoration: BoxDecoration(
-                            // color: dBlackColor.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(dBorderRadius)),
-                        child: DPasswordTextField(
-                          hintText: "Description",
-                          textAlignment: TextAlign.start,
-                          textStyle: body(
-                              weight: FontWeight.w400, color: dTextGreyColor),
-                          padding: 0.0,
-                          controller: _descriptionController,
-                          isBorderless: true,
-                        )),
-                    const DGap(),
-                    Text(
-                      "26th July 2024 03:11 AM",
-                      style: caption(size: 14),
-                    ),
-                  ],
-                ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // DBorderLessTextField(hintText: "Title", controller: _titleController, textStyle: headline(),),
+                  DTextField(
+                    hintText: "Title",
+                    textAlignment: TextAlign.start,
+                    controller: _titleController,
+                    textStyle: boldHeading(weight: FontWeight.w500, size: 32),
+                    isBorderless: true,
+                    
+                  ),
+                  Container(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: dPadding),
+                      decoration: BoxDecoration(
+                          // color: dBlackColor.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(dBorderRadius)),
+                      child: DTextField(
+                        hintText: "Description",
+                        textAlignment: TextAlign.start,
+                        textStyle: body(
+                            weight: FontWeight.w400, color: dTextGreyColor),
+                        padding: 0.0,
+                        controller: _descriptionController,
+                        isBorderless: true,
+                      )),
+                  const DGap(),
+                  Text(
+                    "26th July 2024 03:11 AM",
+                    style: caption(size: 14),
+                  ),
+                ],
               ),
             ),
           ),
@@ -104,6 +102,7 @@ class _UpdateNotePageState extends State<UpdateNotePage> {
                     // Text("❤️", style: caption(size: 15),),
                   ],
                 ),
+                //TODO: #4 Update note automatically
                 DButton(text: "Update Note", onPressed: () => _updateNote()),
               ],
             ),

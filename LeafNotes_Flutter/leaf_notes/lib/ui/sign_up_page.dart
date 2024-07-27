@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:leaf_notes/cubit/auth/auth_cubit.dart';
 import 'package:leaf_notes/cubit/credential/credential_cubit.dart';
 import 'package:leaf_notes/models/user_model.dart';
@@ -7,6 +8,7 @@ import 'package:leaf_notes/router/page_const.dart';
 import 'package:leaf_notes/ui/home_page.dart';
 import 'package:leaf_notes/ui/sign_in_page.dart';
 import 'package:leaf_notes/ui/widgets/common/d_button.dart';
+import 'package:leaf_notes/ui/widgets/common/d_outlined_button.dart';
 import 'package:leaf_notes/ui/widgets/common/d_gap.dart';
 import 'package:leaf_notes/ui/widgets/common/d_snackbar.dart';
 import 'package:leaf_notes/ui/widgets/common/d_text_field.dart';
@@ -102,28 +104,32 @@ class _SignUpPageState extends State<SignUpPage> {
                   _submitSignUp();
 
                   print("Signed Up ${_nameController.value.text}");
-                  print("E-mail: " + _emailController.value.text);
-                  print("Password: " + _passwordController.value.text);
+
                 }),
+                Text("OR"),
+            DOutlinedButton(text: "Sign up with Google",icon: const FaIcon(FontAwesomeIcons.google),  onPressed: (){}),
+            DOutlinedButton(text: "Sign up with Apple",icon: const FaIcon(FontAwesomeIcons.apple),  onPressed: (){}),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Aready have an account?"),
-                DGap(
+                const Text("Aready have an account?"),
+                const DGap(
                   isHorizontal: true,
                 ),
                 TextButton(
                     onPressed: () {
-                      //PUSH NAMED PAGE USING ROUTES INSTEAD OF NORMAL
+                      //TODO: #2 PUSH NAMED PAGE USING ROUTES INSTEAD OF NORMAL
                       Navigator.pushNamedAndRemoveUntil(
                           context, PageConstants.signInPage, (route) => false);
                     },
-                    child: Text(
+                    child: const Text(
                       "Sign In",
                       style: TextStyle(color: dBlackColor),
                     )),
               ],
-            )
+            ),
+
           ],
         ),
       ),

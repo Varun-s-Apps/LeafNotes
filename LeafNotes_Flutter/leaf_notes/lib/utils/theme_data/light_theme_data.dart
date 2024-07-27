@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leaf_notes/utils/constants/colors.dart';
+import 'package:leaf_notes/utils/constants/sizes.dart';
 
 final ThemeData lightTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch().copyWith(
@@ -43,4 +44,13 @@ final ThemeData lightTheme = ThemeData(
       foregroundColor: dWhiteColor, // Button text color
     ),
   ),
+
+
+  outlinedButtonTheme: OutlinedButtonThemeData(style: OutlinedButton.styleFrom(
+    backgroundColor: dScaffoldLightColor,
+    foregroundColor: dBlackColor,
+    side: const BorderSide(color: dBlackColor, width: dBorderWidth*2)
+
+
+  ))
 );

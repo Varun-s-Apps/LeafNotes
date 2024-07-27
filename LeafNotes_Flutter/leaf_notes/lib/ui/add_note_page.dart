@@ -34,7 +34,7 @@ class _AddNotePageState extends State<AddNotePage> {
       ),
       body: Column(
         children: [
-          DTextField(
+          DPasswordTextField(
             hintText: "Title",
             textAlignment: TextAlign.start,
             controller: _titleController,
@@ -43,7 +43,7 @@ class _AddNotePageState extends State<AddNotePage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: dPadding),
-            child: DTextField(
+            child: DPasswordTextField(
               hintText: "Description",
               textAlignment: TextAlign.start,
               textStyle: body(weight: FontWeight.w400, color: dTextGreyColor),

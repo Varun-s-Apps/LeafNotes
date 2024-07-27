@@ -103,7 +103,8 @@ class _SignInPageState extends State<SignInPage> {
                 controller: _emailController,
                 icon: Icons.email),
             const DGap(),
-            DTextField(
+            DPasswordTextField(
+              
               hintText: "Password",
               controller: _passwordController,
               icon: Icons.password,

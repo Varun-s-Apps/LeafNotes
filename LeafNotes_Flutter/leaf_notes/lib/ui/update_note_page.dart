@@ -61,7 +61,7 @@ class _UpdateNotePageState extends State<UpdateNotePage> {
                 child: Column(
                   children: [
                     // DBorderLessTextField(hintText: "Title", controller: _titleController, textStyle: headline(),),
-                    DTextField(
+                    DPasswordTextField(
                       hintText: "Title",
                       textAlignment: TextAlign.start,
                       controller: _titleController,
@@ -75,7 +75,7 @@ class _UpdateNotePageState extends State<UpdateNotePage> {
                         decoration: BoxDecoration(
                             // color: dBlackColor.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(dBorderRadius)),
-                        child: DTextField(
+                        child: DPasswordTextField(
                           hintText: "Description",
                           textAlignment: TextAlign.start,
                           textStyle: body(

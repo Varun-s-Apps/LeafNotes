@@ -56,13 +56,13 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 const Text("Username"),
                 const DGap(),
-                DTextField(
+                DPasswordTextField(
                     hintText: "Username", controller: _usernameController),
                 const DGap(),
                 const Text("Email"),
                 const DGap(),
                 AbsorbPointer(
-                    child: DTextField(
+                    child: DPasswordTextField(
                         hintText: "Email", controller: _emailController)),
                 const DGap(),
                 DButton(text: "Update Profile", onPressed: _updateProfile),
